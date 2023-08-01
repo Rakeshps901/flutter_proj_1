@@ -14,7 +14,7 @@ class _Splash3State extends State<Splash3> {
 
   @override
   void initState() {//what will happen when the app or page is first launched
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 1), () {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context)=>LoginPage()));
 
