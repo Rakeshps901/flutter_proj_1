@@ -3,7 +3,7 @@ import 'package:flutter_proj_1/home.dart';
 
 class LoginPage extends StatelessWidget {
   String uname="admin";
-  String pass ="abc123";
+  String pwd ="abc123";
 
   TextEditingController usercontroller = TextEditingController();
   TextEditingController passcontroller = TextEditingController();
@@ -17,11 +17,11 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Padding(
-              padding: EdgeInsets.all(20.0),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
               child: TextField(
                 controller: usercontroller,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.people),
                     hintText: "UserName",
@@ -29,14 +29,14 @@ class LoginPage extends StatelessWidget {
                     labelText: "UserName"),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(left: 20, right: 20,
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20,
                   bottom: 50),
               child: TextField(
                 controller: passcontroller,
                 obscureText: true,
                 obscuringCharacter: '*',
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.visibility_off_sharp),
                     hintText: "Password",
@@ -45,7 +45,9 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomePage()));
+              if(uname == usercontroller.text && pwd == passcontroller.text)
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => HomePage()));
             }, child: const Text("Login"))
           ],
         ),
