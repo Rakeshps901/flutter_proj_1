@@ -45,12 +45,22 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: () {
-              if(uname == usercontroller.text && pwd == passcontroller.text)
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => HomePage()));
+              if(uname == usercontroller.text && pwd == passcontroller.text) {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => HomePage()));
 
-              usercontroller.text="";
-              passcontroller.text="";
+                usercontroller.text = "";
+                passcontroller.text = "";
+              }else {
+                // ScaffoldMessenger.of(context).showSnackBar(
+                //     const SnackBar(context: Text("Invalid Username or passwprd"),
+                //     backgroundColor: Colors.red,)
+                // );
+                Fluttertoast.showToast(
+                  msg: "Invalid Username or Password",
+
+                )
+              }
             }, child: const Text("Login"))
           ],
         ),
