@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_proj_1/home.dart';
 
 class LoginPage extends StatelessWidget {
-  String uname="admin";
-  String pwd ="abc123";
-
+  String uname = "admin";
+  String pwd   = "abc123";
+//text editing con
   TextEditingController usercontroller = TextEditingController();
   TextEditingController passcontroller = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,21 +47,28 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: () {
-              if(uname == usercontroller.text && pwd == passcontroller.text) {
+
+              if(uname == usercontroller.text  && pwd == passcontroller.text) {
+
                 Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => HomePage()));
 
-                usercontroller.text = "";
-                passcontroller.text = "";
-              }else {
+                usercontroller.text= "";
+                passcontroller.text="";
+              } else{
                 // ScaffoldMessenger.of(context).showSnackBar(
-                //     const SnackBar(context: Text("Invalid Username or passwprd"),
+                //     const SnackBar(content: Text("Invalid Username or Password"),
                 //     backgroundColor: Colors.red,)
                 // );
                 Fluttertoast.showToast(
-                  msg: "Invalid Username or Password",
-
-                )
+                    msg: "Invalid Username or Password",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.TOP,
+                    // timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
               }
             }, child: const Text("Login"))
           ],
