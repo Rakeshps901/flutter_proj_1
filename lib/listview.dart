@@ -16,7 +16,9 @@ class ListView1 extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Text("Select your Food",style: GoogleFonts.pacifico(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black),),
+          Center(
+          child: Text("Select your Food from the Menu!!",style: GoogleFonts.pacifico(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black),)
+          ),
           Card(
             child: ListTile(
               title: Text("HamBurger"),
@@ -29,7 +31,7 @@ class ListView1 extends StatelessWidget {
             child: ListTile(
               title: Text("Pizza"),
               subtitle: Text("\$350"),
-              trailing: Icon(Icons.shopping_cart,color: Colors.teal,),
+              trailing: Icon(Icons.shopping_cart,),
               leading: Image.asset("assets/images/pizza.png") ,
             ),
           ),
@@ -47,6 +49,16 @@ class ListView1 extends StatelessWidget {
               subtitle: Text("\$400"),
               trailing: Icon(Icons.shopping_cart),
               leading: Image.asset("assets/images/cake.png") ,
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text("Biriyani"),
+              subtitle: Text("\$59"),
+              trailing: Icon(Icons.shopping_cart),
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAmZyCXIlSNAnNoQOtziFqp_e8pAeQcatRfA&usqp=CAU"),
+              )
             ),
           ),
         ],
