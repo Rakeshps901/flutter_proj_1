@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_proj_1/passing%20data%20between%20screens/using%20constructor/to_stateful_page.dart';
 import 'package:flutter_proj_1/passing%20data%20between%20screens/using%20constructor/to_stateless_page.dart';
 
+void main()
+{
+  runApp(MaterialApp(home: DataPage(),));
+}
 class DataPage extends StatelessWidget {
   final String name ="Luminar";
 
