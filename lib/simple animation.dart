@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void main()
+{
+  runApp(MaterialApp(home: SimpleAnimation(),));
+}
 class SimpleAnimation extends StatefulWidget {
   const SimpleAnimation({super.key});
 
@@ -7,16 +11,19 @@ class SimpleAnimation extends StatefulWidget {
   State<SimpleAnimation> createState() => _SimpleAnimationState();
 }
 
-class _SimpleAnimationState extends State<SimpleAnimation> with SingleTickerProviderStateMixin{
+class _SimpleAnimationState extends State<SimpleAnimation>
+    with SingleTickerProviderStateMixin {
   Animation<double>? animation;
   AnimationController? animationController;
 
   @override
-  void initState(){
-    animationController=AnimationController(vsync: this,duration: Duration(seconds: 3));
-    animation=Tween<double>(begin: 12.0,end: 100.0).animate(animationController!)..addListener(() {
-      setState(() { });
-    });
+  void initState() {
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    animation =
+        Tween<double>(begin: 12.0, end: 100.0).animate(animationController!)..addListener(() {
+            setState(() {});
+        });
     super.initState();
   }
 
@@ -27,9 +34,14 @@ class _SimpleAnimationState extends State<SimpleAnimation> with SingleTickerProv
         children: [
           Container(
             margin: EdgeInsets.all(20),
-            child: Text('Hello All',
-              style: TextStyle(fontSize: animation?.value),),),
-          ElevatedButton(onPressed: () => ZoomIn(), child: const Text('Increase text size'))
+            child: Text(
+              'Hello All',
+              style: TextStyle(fontSize: animation?.value),
+            ),
+          ),
+          ElevatedButton(
+              onPressed: () => ZoomIn(),
+              child: const Text('Increase text size')),
         ],
       ),
     );
