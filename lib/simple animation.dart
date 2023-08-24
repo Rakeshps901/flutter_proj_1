@@ -13,7 +13,10 @@ class _SimpleAnimationState extends State<SimpleAnimation> with SingleTickerProv
 
   @override
   void initState(){
-    animationController=AnimationController(vsync: vsync),
+    animationController=AnimationController(vsync: this,duration: Duration(seconds: 3));
+    animation=Tween<double>(begin: 12.0,end: 100.0).animate(animationController!)..addListener(() {
+      setState(() { });
+    });
     super.initState();
   }
 
