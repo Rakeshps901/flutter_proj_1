@@ -7,9 +7,15 @@ class SimpleAnimation extends StatefulWidget {
   State<SimpleAnimation> createState() => _SimpleAnimationState();
 }
 
-class _SimpleAnimationState extends State<SimpleAnimation> {
+class _SimpleAnimationState extends State<SimpleAnimation> with SingleTickerProviderStateMixin{
   Animation<double>? animation;
   AnimationController? animationController;
+
+  @override
+  void initState(){
+    animationController=AnimationController(vsync: vsync),
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
